@@ -87,7 +87,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             rgb_led_idle_turnoff = false;
             rgblight_enable_noeeprom();
             trackball_color_auto();
-            oled_on();
         }
     }
 #endif
@@ -137,7 +136,6 @@ void matrix_scan_user(void) {
             rgb_led_idle_turnoff = true;
             rgblight_disable_noeeprom();
             trackball_set_rgbw(0x00, 0x00, 0x00, 0x00);
-            oled_off();
         }
     }
 #endif
