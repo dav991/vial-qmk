@@ -1,6 +1,6 @@
 {
     "manufacturer": "David A.",
-    "keyboard_name": "handwires/clueboard/rev1",
+    "keyboard_name": "handwired/clueboard/rev1",
     "maintainer": "dav991",
     "bootloader": "rp2040",
     "diode_direction": "COL2ROW",
@@ -20,8 +20,8 @@
     "url": "",
     "usb": {
         "device_version": "1.0.0",
-        "pid": "0x0000",
-        "vid": "0xFEED"
+        "vid": "0x5241",
+        "pid": "0x006B"
     },
     "layouts": {
         "LAYOUT_66_ansi": {
