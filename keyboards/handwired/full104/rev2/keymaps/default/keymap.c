@@ -41,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___,AG_TOGG,      ___,                 ___,                           ___,      ___, MO(_BL),     ___,            ___,   KC_VOLD,      ___,     ___,              ___ \
 ),
 [_BL] = LAYOUT_ansi( \
-        ___,              ___,   ___,   ___,   ___,   ___,   ___,      ___,    ___,     ___,     ___,     ___,     ___,    ___,      ___,  QK_BOOT, \
+        ___,              ___,   ___,   ___,   ___,   ___,   ___,      ___,    ___,     ___,     ___,     ___,     ___,    ___,   QK_RBT,  QK_BOOT, \
         ___,  ___,        ___,   ___,   ___,   ___,   ___,   ___,      ___,    ___,     ___,     ___,     ___,     ___,    ___,      ___,      ___,     ___,     ___,     ___, RGB_VAD, \
         ___,  ___,        ___,   ___,   ___,   ___,   ___,   ___,      ___,    ___,     ___,     ___,     ___,     ___,    ___,      ___,      ___,     ___, RGB_HUI,     ___, RGB_VAI, \
         ___,  ___,        ___,   ___,   ___,   ___,   ___,   ___,      ___,    ___,     ___,     ___,     ___,                                      RGB_SAD, RGB_TOG, RGB_SAI,          \
@@ -74,6 +74,21 @@ bool oled_task_user(void) {
     snprintf(rgbStatusLine2, sizeof(rgbStatusLine2), " s:%3d v:%3d", rgblight_get_sat(), rgblight_get_val());
     oled_write_P(PSTR(rgbStatusLine1), false);
     oled_write_P(PSTR(rgbStatusLine2), false);
+    oled_write_P(PSTR(" "), false);
+    switch (trackball_active_mode) {
+        case TRACKBALL_MODE_MOUSE:
+            oled_write_P(PSTR("TB: MOU"), false);
+            break;
+        case TRACKBALL_MODE_CURSOR:
+            oled_write_P(PSTR("TB: CUR"), false);
+            break;
+        case TRACKBALL_MODE_VOLUME:
+            oled_write_P(PSTR("TB: VOL"), false);
+            break;
+        case TRACKBALL_MODE_RGB_CONFIG:
+            oled_write_P(PSTR("TB: RGB"), false);
+            break;
+    }
     return false;
 }
 #endif
@@ -148,3 +163,10 @@ void matrix_scan_user(void) {
 }
 
 
+void suspend_power_down_user(void) {
+    trackball_set_rgbw(0x00, 0x00, 0x00, 0x00);
+}
+
+void suspend_wakeup_init_user(void) {
+    trackball_color_auto();
+}
