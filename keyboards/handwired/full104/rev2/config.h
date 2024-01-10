@@ -35,4 +35,4 @@
 #define RGBLIGHT_EFFECT_TWINKLE
 #endif // RGBLIGHT_ENABLE
 
-#define DEBOUNCE 5
+#define DEBOUNCE 10
