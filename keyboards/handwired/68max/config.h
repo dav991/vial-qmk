@@ -2,7 +2,9 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #pragma once
-
+#ifdef RGBLIGHT_ENABLE
+#define RGBLIGHT_SLEEP
+#endif
 /*
  * Feature disable options
  *  These options are also useful to firmware size reduction.
