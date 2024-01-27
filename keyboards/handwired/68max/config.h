@@ -5,6 +5,7 @@
 #ifdef RGBLIGHT_ENABLE
 #define RGBLIGHT_SLEEP
 #define RGBLIGHT_TIMEOUT 600
+#define RGBLIGHT_LAYERS
 #endif
 /*
  * Feature disable options
