@@ -4,6 +4,7 @@
 #pragma once
 #ifdef RGBLIGHT_ENABLE
 #define RGBLIGHT_SLEEP
+#define RGBLIGHT_TIMEOUT 600
 #endif
 /*
  * Feature disable options
